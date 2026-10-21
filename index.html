@@ -1,31 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hannah Yawt's cybersecurity and IT portfolio.">
+  <title>Hannah Yawt | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="matrix-overlay" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="prompt">root@</span>HannahYawt<span class="cursor">_</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="primary-nav">☰ Menu</button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-root@HannahYawt_ ☰ Menu
-Home Projects About Contact
-INFORMATION TECHNOLOGY // CYBERSECURITY
-Hi, I'm Hannah Yawt_
-IT student. Cybersecurity enthusiast. Future ethical hacker.
-Exploring how systems work, how they fail, and how to make them safer.
-View Projects → About Me
-hannah@portfolio: ~● ONLINE
-Welcome to my portfolio terminal. Type help to see available commands.
-guest@hannah:~$ help
-Commands: help, about, projects, skills, contact, clear
-Enter a terminal command guest@hannah:~$ Run ↵
-This is a simulated portfolio terminal, not a real operating-system shell.
-CURRENT FOCUS
-Building my cybersecurity toolkit
-⌘
-IT Foundations
-Learning the systems, networks, and troubleshooting skills that keep technology running.
-⛨
-Cybersecurity
-Studying security principles, safe practices, and how to think defensively about digital systems.
-⌁
-Hands-on Learning
-Turning coursework into practical projects and documenting what I learn along the way.
-EXPLORE THE PORTFOLIO
-Curious what I'm working on?
-Check out my projects or learn more about my journey into IT and cybersecurity.
-Explore Projects →
-© 2026 Hannah Yawt | Built with HTML, CSS & JavaScript
-Learning. Building. Securing.
+  <main class="container">
+    <section class="hero panel">
+      <p class="eyebrow">INFORMATION TECHNOLOGY // CYBERSECURITY</p>
+      <h1>Hi, I'm <span class="neon">Hannah Yawt</span><span class="cursor">_</span></h1>
+      <p class="hero-copy">IT student. Cybersecurity enthusiast. Future ethical hacker.</p>
+      <p class="muted">Exploring how systems work, how they fail, and how to make them safer.</p>
+      <div class="hero-actions">
+        <a class="button" href="projects.html">View Projects <span aria-hidden="true">→</span></a>
+        <a class="button button-ghost" href="about.html">About Me</a>
+      </div>
+    </section>
+
+    <section class="terminal panel" aria-labelledby="terminal-heading">
+      <div class="terminal-bar"><span class="terminal-dots"><i></i><i></i><i></i></span><span id="terminal-heading">hannah@portfolio: ~</span><span class="terminal-status">● ONLINE</span></div>
+      <div class="terminal-body">
+        <p class="terminal-intro">Welcome to my portfolio terminal. Type <code>help</code> to see available commands.</p>
+        <div id="terminal-output" class="terminal-output" aria-live="polite">
+          <p><span class="terminal-user">guest@hannah:~$</span> <span class="muted">help</span></p>
+          <p>Commands: <code>help</code>, <code>about</code>, <code>projects</code>, <code>skills</code>, <code>contact</code>, <code>clear</code></p>
+        </div>
+        <form id="terminal-form" class="terminal-form">
+          <label class="sr-only" for="terminal-input">Enter a terminal command</label>
+          <span class="terminal-user">guest@hannah:~$</span>
+          <input id="terminal-input" name="command" autocomplete="off" spellcheck="false" placeholder="type a command..." aria-label="Terminal command">
+          <button type="submit" class="run-button">Run ↵</button>
+        </form>
+        <p class="terminal-note">This is a simulated portfolio terminal, not a real operating-system shell.</p>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading"><p class="eyebrow">CURRENT FOCUS</p><h2>Building my cybersecurity toolkit</h2></div>
+      <div class="card-grid">
+        <article class="feature-card panel"><span class="card-icon" aria-hidden="true">⌘</span><h3>IT Foundations</h3><p>Learning the systems, networks, and troubleshooting skills that keep technology running.</p></article>
+        <article class="feature-card panel"><span class="card-icon" aria-hidden="true">⛨</span><h3>Cybersecurity</h3><p>Studying security principles, safe practices, and how to think defensively about digital systems.</p></article>
+        <article class="feature-card panel"><span class="card-icon" aria-hidden="true">⌁</span><h3>Hands-on Learning</h3><p>Turning coursework into practical projects and documenting what I learn along the way.</p></article>
+      </div>
+    </section>
+    <section class="callout panel"><div><p class="eyebrow">EXPLORE THE PORTFOLIO</p><h2>Curious what I'm working on?</h2><p class="muted">Check out my projects or learn more about my journey into IT and cybersecurity.</p></div><a class="button" href="projects.html">Explore Projects →</a></section>
+  </main>
+  <footer class="site-footer"><p>© 2026 Hannah Yawt <span class="footer-divider">|</span> Built with HTML, CSS & JavaScript</p><p class="footer-status"><span class="status-dot"></span> Learning. Building. Securing.</p></footer>
+</body>
+</html>
