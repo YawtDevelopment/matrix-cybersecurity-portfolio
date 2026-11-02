@@ -1,26 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
-  <title id="title">Hannah Yawt profile picture</title>
-  <desc id="desc">A stylized portrait with a green matrix-style color palette.</desc>
+  <title id="title">Hannah Yawt profile image</title>
+  <desc id="desc">A stylized profile portrait with a green-on-black cyber aesthetic.</desc>
   <defs>
     <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#071710"/>
-      <stop offset="100%" stop-color="#0d2218"/>
+      <stop offset="0%" stop-color="#07150f"/>
+      <stop offset="100%" stop-color="#0a241a"/>
     </linearGradient>
     <linearGradient id="shirt" x1="0" x2="1" y1="0" y2="1">
-      <stop offset="0%" stop-color="#5df5a2"/>
-      <stop offset="100%" stop-color="#1ebd72"/>
+      <stop offset="0%" stop-color="#48ff9a"/>
+      <stop offset="100%" stop-color="#18a85d"/>
     </linearGradient>
   </defs>
 
   <rect width="600" height="600" fill="url(#bg)"/>
-  <circle cx="300" cy="160" r="118" fill="#d9f8e6"/>
+  <circle cx="300" cy="160" r="118" fill="#dfffe9"/>
   <path d="M175 500c18-92 72-146 125-146s107 54 125 146" fill="url(#shirt)"/>
-  <path d="M225 210c14-58 54-94 75-94 22 0 64 35 79 94-21-18-41-27-79-27-34 0-57 9-75 27z" fill="#0a1d14"/>
-  <circle cx="260" cy="155" r="10" fill="#0a1d14"/>
-  <circle cx="340" cy="155" r="10" fill="#0a1d14"/>
-  <path d="M270 195c18 18 42 24 60 0" fill="none" stroke="#0a1d14" stroke-width="8" stroke-linecap="round"/>
-  <path d="M150 120l42 26" stroke="#42ff8b" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
-  <path d="M450 120l-42 26" stroke="#42ff8b" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
-  <path d="M200 420l100-56 100 56" fill="none" stroke="#dffff0" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
-  <text x="300" y="360" text-anchor="middle" font-size="48" font-family="Consolas, monospace" fill="#0d1c14" font-weight="700">HY</text>
+  <path d="M230 220c14-54 48-86 70-86 26 0 62 30 76 86-20-18-41-28-76-28-30 0-53 9-70 28z" fill="#07150f"/>
+  <circle cx="264" cy="160" r="9" fill="#07150f"/>
+  <circle cx="338" cy="160" r="9" fill="#07150f"/>
+  <path d="M275 197c18 18 34 20 50 0" stroke="#07150f" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M150 110l38 24" stroke="#3bff8f" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+  <path d="M450 110l-38 24" stroke="#3bff8f" stroke-width="8" stroke-linecap="round" opacity="0.75"/>
+  <path d="M200 420l100-58 100 58" fill="none" stroke="#dfffe9" stroke-width="8" stroke-linecap="round" opacity="0.8"/>
+  <text x="300" y="350" text-anchor="middle" font-size="52" font-family="Consolas, monospace" fill="#07150f" font-weight="700">HY</text>
 </svg>
