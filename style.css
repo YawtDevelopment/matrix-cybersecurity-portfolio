@@ -1,16 +1,16 @@
 :root {
-  --bg: #020b08;
-  --bg-2: #071d12;
-  --panel: rgba(9, 20, 14, 0.94);
-  --panel-alt: rgba(16, 30, 22, 0.92);
-  --green: #42ff8b;
-  --green-strong: #8dffb3;
-  --green-soft: #b6ffd0;
-  --green-dim: #1c8f52;
-  --text: #e8fff0;
-  --muted: #9ad4ad;
-  --border: rgba(66, 255, 139, 0.34);
-  --shadow: 0 0 30px rgba(66, 255, 139, 0.14);
+  --bg: #030b08;
+  --bg-2: #071c13;
+  --panel: rgba(8, 20, 15, 0.94);
+  --panel-2: rgba(14, 27, 20, 0.95);
+  --green: #3bff8f;
+  --green-soft: #bafed3;
+  --green-bright: #9cffc9;
+  --green-dim: #1b8d52;
+  --text: #ebfff3;
+  --muted: #9bc7aa;
+  --border: rgba(59, 255, 143, 0.38);
+  --shadow: 0 0 0 1px rgba(59,255,143,0.10), 0 0 26px rgba(59,255,143,0.10);
   --radius: 14px;
   --content-width: 1120px;
 }
@@ -24,25 +24,32 @@ body {
   display: flex;
   flex-direction: column;
   background:
-    radial-gradient(circle at top, rgba(66,255,139,0.12), transparent 35%),
-    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 45%, #010705 100%);
+    radial-gradient(circle at top, rgba(59,255,143,0.12), transparent 28%),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 52%, #010805 100%);
   color: var(--text);
   font-family: "Consolas", "SFMono-Regular", "Menlo", "Monaco", monospace;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(66,255,139,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(66,255,139,0.05) 1px, transparent 1px);
-  background-size: 26px 26px;
-  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    linear-gradient(rgba(59,255,143,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,255,143,0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,0.85), transparent 95%);
 }
 
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Global link/button styling */
 a {
   color: var(--green);
   text-decoration: none;
@@ -50,8 +57,8 @@ a {
 
 a:hover,
 a:focus-visible {
-  color: var(--green-strong);
-  text-shadow: 0 0 10px rgba(66,255,139,.35);
+  color: var(--green-soft);
+  text-shadow: 0 0 12px rgba(59,255,143,0.28);
 }
 
 button, input {
@@ -63,14 +70,14 @@ button, a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--green-strong);
+  outline: 2px solid var(--green);
   outline-offset: 4px;
 }
 
 .site-header {
   width: min(100% - 2rem, var(--content-width));
   margin: 0 auto;
-  padding: 1.15rem 0;
+  padding: 1.1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -79,9 +86,9 @@ button, a {
 }
 
 .brand {
+  color: var(--green-bright);
   font-weight: 800;
-  color: var(--green-strong);
-  letter-spacing: -.04em;
+  letter-spacing: -0.04em;
   white-space: nowrap;
 }
 
@@ -113,9 +120,9 @@ button, a {
 
 .primary-nav a:hover,
 .primary-nav a.active {
-  color: var(--green-strong);
+  color: var(--green-soft);
   border-color: var(--border);
-  background: rgba(66,255,139,.06);
+  background: rgba(59,255,143,0.06);
 }
 
 .menu-toggle {
@@ -135,9 +142,9 @@ button, a {
 }
 
 .hero {
-  margin-top: 2.2rem;
+  margin-top: 2.3rem;
   padding: clamp(1.5rem, 5vw, 4rem);
-  background: linear-gradient(180deg, rgba(12, 24, 18, 0.98), rgba(7, 17, 12, 0.94));
+  background: linear-gradient(180deg, rgba(11, 24, 18, 0.98), rgba(5, 14, 10, 0.94));
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -169,22 +176,22 @@ h1 {
 }
 
 h2 {
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
   line-height: 1.25;
-  font-size: clamp(1.45rem, 3vw, 2.1rem);
 }
 
 h3 {
-  color: var(--green-strong);
+  color: var(--green-bright);
 }
 
 .neon {
-  color: var(--green-strong);
-  text-shadow: 0 0 22px rgba(66,255,139,.23);
+  color: var(--green-bright);
+  text-shadow: 0 0 20px rgba(59,255,143,0.25);
 }
 
 .hero-copy {
   font-size: clamp(1.05rem, 2vw, 1.3rem);
-  color: var(--green-strong);
+  color: var(--green-bright);
   margin-bottom: .4rem;
 }
 
@@ -209,30 +216,30 @@ h3 {
   padding: .75rem 1rem;
   border: 1px solid var(--green);
   border-radius: 10px;
-  box-shadow: 0 0 12px rgba(66,255,139,.2);
+  box-shadow: 0 0 16px rgba(59,255,143,0.16);
 }
 
 .button:hover {
   color: #041008;
   transform: translateY(-2px);
-  box-shadow: 0 0 22px rgba(66,255,139,.25);
+  box-shadow: 0 0 22px rgba(59,255,143,0.26);
 }
 
 .button-ghost {
   color: var(--green);
-  background: rgba(66,255,139,.04);
+  background: rgba(59,255,143,0.04);
 }
 
 .button-ghost:hover {
-  color: var(--green-strong);
+  color: var(--green-soft);
 }
 
 .terminal {
   margin-top: 1.25rem;
   overflow: hidden;
-  background: rgba(4, 14, 10, 0.96);
-  border: 1px solid rgba(66,255,139,.42);
-  box-shadow: 0 0 0 1px rgba(66,255,139,.08), 0 0 25px rgba(66,255,139,.06);
+  background: rgba(3, 11, 8, 0.96);
+  border: 1px solid rgba(59,255,143,0.42);
+  box-shadow: 0 0 0 1px rgba(59,255,143,0.08), 0 0 24px rgba(59,255,143,0.08);
 }
 
 .terminal-bar {
@@ -240,7 +247,7 @@ h3 {
   align-items: center;
   gap: .8rem;
   padding: .8rem 1rem;
-  background: rgba(66,255,139,.07);
+  background: rgba(59,255,143,0.08);
   border-bottom: 1px solid var(--border);
   color: var(--muted);
   font-size: .82rem;
@@ -276,13 +283,13 @@ h3 {
 
 .terminal-output p {
   margin: .35rem 0;
-  color: var(--green-strong);
+  color: var(--green-bright);
   font-size: .9rem;
 }
 
-.terminal-output .system { color: #9fe7b6; }
-.terminal-output .warning { color: #ffe18d; }
-.terminal-output .error { color: #ff9c9c; }
+.terminal-output .system { color: #a8ffbf; }
+.terminal-output .warning { color: #ffe08a; }
+.terminal-output .error { color: #ff9494; }
 
 .terminal-user {
   color: var(--green);
@@ -290,8 +297,8 @@ h3 {
 }
 
 code {
-  color: var(--green-strong);
-  background: rgba(66,255,139,.08);
+  color: var(--green-bright);
+  background: rgba(59,255,143,0.08);
   border-radius: 4px;
   padding: .1rem .3rem;
 }
@@ -326,7 +333,7 @@ code {
   cursor: pointer;
 }
 
-.run-button:hover { background: rgba(66,255,139,.1); }
+.run-button:hover { background: rgba(59,255,143,0.1); }
 
 .terminal-note,
 .small-text {
@@ -374,7 +381,7 @@ code {
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
-  background: linear-gradient(180deg, rgba(8, 18, 13, 0.96), rgba(5, 13, 10, 0.94));
+  background: linear-gradient(180deg, rgba(12, 24, 18, 0.98), rgba(5, 13, 10, 0.96));
 }
 
 .callout h2 { margin-bottom: .5rem; }
@@ -403,7 +410,7 @@ code {
   background: var(--green);
   margin-right: .5rem;
   vertical-align: middle;
-  box-shadow: 0 0 12px rgba(66,255,139,0.8);
+  box-shadow: 0 0 12px rgba(59,255,143,0.8);
 }
 
 .page-content { padding-top: 2rem; }
@@ -443,7 +450,7 @@ code {
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid var(--border);
-  box-shadow: 0 0 16px rgba(66,255,139,0.1);
+  box-shadow: 0 0 18px rgba(59,255,143,0.08);
 }
 
 .profile-placeholder {
@@ -456,7 +463,7 @@ code {
   color: var(--green);
   font-size: 4rem;
   font-weight: 800;
-  background: rgba(66,255,139,.05);
+  background: rgba(59,255,143,.05);
   border: 1px solid var(--border);
   border-radius: 10px;
 }
@@ -504,7 +511,7 @@ code {
 }
 
 .tag-list li {
-  color: var(--green-strong);
+  color: var(--green-bright);
   border: 1px solid var(--border);
   border-radius: 5px;
   padding: .18rem .45rem;
@@ -546,7 +553,7 @@ code {
   word-break: break-word;
   font-size: .68rem;
   line-height: 1.5;
-  color: var(--green-strong);
+  color: var(--green-bright);
 }
 
 .project-note { margin-top: 1rem; margin-bottom: 0; }
@@ -561,14 +568,13 @@ code {
 
 .email-link {
   display: inline-block;
-  color: var(--green-strong);
+  color: var(--green-bright);
   font-weight: 700;
   font-size: 1rem;
-  padding: .4rem .55rem;
+  padding: .45rem .6rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(66,255,139,.05);
-  box-shadow: inset 0 0 18px rgba(66,255,139,.04);
+  background: rgba(59,255,143,0.05);
 }
 
 .email-link:hover,
@@ -609,9 +615,7 @@ code {
 }
 
 @media (max-width: 520px) {
-  .container, .site-header, .site-footer {
-    width: min(100% - 1.1rem, var(--content-width));
-  }
+  .container, .site-header, .site-footer { width: min(100% - 1.1rem, var(--content-width)); }
   .site-header { padding: .8rem 0; }
   .brand { font-size: .92rem; }
   .hero { margin-top: 1rem; padding: 1.2rem; }
