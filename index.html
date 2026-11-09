@@ -3,308 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hannah Yawt's cybersecurity and information technology portfolio.">
   <title>Hannah Yawt | Cybersecurity Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #0b120f;
-      color: #00ff66;
-      font-family: 'Fira Code', 'Courier New', monospace;
-      line-height: 1.6;
-      padding: 24px;
-      min-height: 100vh;
-    }
-
-    .scanline {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(
-        rgba(0, 0, 0, 0) 50%,
-        rgba(0, 0, 0, 0.22) 50%
-      );
-      background-size: 100% 4px;
-      opacity: 0.7;
-    }
-
-    .terminal-container {
-      position: relative;
-      max-width: 980px;
-      margin: 0 auto;
-      background: #050b08;
-      border: 1px solid #00ff66;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 255, 102, 0.18);
-    }
-
-    .terminal-header {
-      background: #0f1714;
-      border-bottom: 1px solid #00ff66;
-      padding: 10px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .terminal-buttons {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .btn {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .btn-close { background: #ff5f56; }
-    .btn-min   { background: #ffbd2e; }
-    .btn-max   { background: #2ecb55; }
-
-    .terminal-body {
-      padding: 24px 28px 18px;
-    }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: #8cffb8;
-      text-decoration: none;
-      font-size: 0.85rem;
-      transition: 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: #d9ffe8;
-      text-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
-    }
-
-    .status {
-      color: #9cffc9;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-    }
-
-    .prompt {
-      color: #00ff66;
-      font-weight: 700;
-    }
-
-    .muted {
-      color: #a2d0b3;
-    }
-
-    h1 {
-      font-family: 'VT323', monospace;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      line-height: 0.9;
-      letter-spacing: 0.04em;
-      margin: 14px 0 12px;
-      color: #dfffe9;
-      text-shadow: 0 0 10px rgba(0, 255, 102, 0.18);
-    }
-
-    h2 {
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #9cffc9;
-      margin-top: 18px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      margin-bottom: 12px;
-    }
-
-    a {
-      color: #00d9ff;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      background: rgba(0, 217, 255, 0.08);
-    }
-
-    .hero-copy {
-      max-width: 760px;
-      font-size: 1rem;
-      color: #caffdb;
-    }
-
-    .terminal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 26px;
-    }
-
-    .panel {
-      background: rgba(10, 22, 17, 0.75);
-      border: 1px solid rgba(0, 255, 102, 0.35);
-      padding: 16px;
-      border-radius: 6px;
-      min-height: 150px;
-    }
-
-    .panel strong {
-      color: #9cffc9;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    .command-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 20px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(0, 255, 102, 0.25);
-      flex-wrap: wrap;
-    }
-
-    .terminal-input {
-      background: transparent;
-      border: none;
-      color: #00ff66;
-      font-family: inherit;
-      font-size: 1rem;
-      flex: 1;
-      min-width: 220px;
-      outline: none;
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 10px;
-      height: 16px;
-      background: #00ff66;
-      animation: blink 1s infinite;
-      vertical-align: middle;
-    }
-
-    @keyframes blink {
-      0%, 49% { opacity: 1; }
-      50%, 100% { opacity: 0; }
-    }
-
-    .footer {
-      margin-top: 18px;
-      font-size: 0.8rem;
-      color: #8fc9a4;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 14px;
-      }
-
-      .terminal-body {
-        padding: 18px 14px 16px;
-      }
-
-      .topbar {
-        align-items: flex-start;
-      }
-
-      .nav {
-        gap: 10px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="scanline"></div>
+  <div class="matrix-overlay" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="prompt">root@</span>HannahYawt<span class="cursor" aria-hidden="true">_</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
+      <a class="active" href="index.html" aria-current="page">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-  <div class="terminal-container">
-    <div class="terminal-header">
-      <div class="terminal-buttons">
-        <span class="btn btn-close"></span>
-        <span class="btn btn-min"></span>
-        <span class="btn btn-max"></span>
-      </div>
-      <div>root@HannahYawt:~</div>
-      <div class="status">[ONLINE]</div>
-    </div>
-
-    <div class="terminal-body">
-      <div class="topbar">
-        <div class="nav">
-          <a href="index.html">home</a>
-          <a href="projects.html">projects</a>
-          <a href="about.html">about</a>
-          <a href="contact.html">contact</a>
-        </div>
-        <div class="status">status: secure</div>
-      </div>
-
-      <div class="prompt">guest@hannah:~$ whoami</div>
-      <h1>Hannah Yawt</h1>
+  <main class="container">
+    <section class="hero panel" aria-labelledby="intro-title">
+      <p class="eyebrow">guest@hannah:~$ whoami</p>
+      <h1 id="intro-title">Hannah <span class="neon">Yawt</span></h1>
       <p class="hero-copy">IT student // cybersecurity enthusiast // future ethical hacker</p>
-      <p class="hero-copy">Exploring systems, vulnerabilities, and secure solutions from a student perspective.</p>
-
-      <div class="terminal-grid">
-        <div class="panel">
-          <strong>focus</strong>
-          <p>Information Technology</p>
-          <p>Cybersecurity fundamentals</p>
-          <p>Hands-on learning</p>
-        </div>
-
-        <div class="panel">
-          <strong>skills</strong>
-          <p>HTML / CSS / JavaScript</p>
-          <p>Networking basics</p>
-          <p>Security awareness</p>
-        </div>
-
-        <div class="panel">
-          <strong>current</strong>
-          <p>Building portfolio projects</p>
-          <p>Studying secure systems</p>
-          <p>Growing technical skills</p>
-        </div>
+      <p class="muted">Exploring systems, vulnerabilities, and secure solutions from a student perspective.</p>
+      <div class="hero-actions">
+        <a class="button" href="projects.html">Explore my projects</a>
+        <a class="button button-ghost" href="about.html">About me</a>
       </div>
+    </section>
 
-      <div class="command-line">
-        <span class="prompt">guest@hannah:~$</span>
-        <input class="terminal-input" type="text" value="./portfolio --learn --build --secure" readonly>
-        <span class="cursor" aria-hidden="true"></span>
+    <section class="section-block" aria-labelledby="focus-title">
+      <div class="section-heading">
+        <p class="eyebrow">CURRENT DIRECTORY</p>
+        <h2 id="focus-title">What I'm focused on</h2>
       </div>
+      <div class="card-grid">
+        <article class="feature-card panel">
+          <span class="card-icon" aria-hidden="true">01</span>
+          <h3>Information Technology</h3>
+          <p>Building a strong foundation in systems, networking, and practical troubleshooting.</p>
+        </article>
+        <article class="feature-card panel">
+          <span class="card-icon" aria-hidden="true">02</span>
+          <h3>Cybersecurity</h3>
+          <p>Learning security fundamentals and how thoughtful practices help protect digital systems.</p>
+        </article>
+        <article class="feature-card panel">
+          <span class="card-icon" aria-hidden="true">03</span>
+          <h3>Hands-on learning</h3>
+          <p>Growing technical skills by building projects, testing ideas, and documenting progress.</p>
+        </article>
+      </div>
+    </section>
 
-      <div class="footer">
-        Last login: 2026-11-02 // terminal mode enabled // access granted
+    <section class="callout panel" aria-labelledby="next-title">
+      <div>
+        <p class="eyebrow">NEXT STEP</p>
+        <h2 id="next-title">See what I'm building</h2>
+        <p class="muted">Browse my projects or get in touch about learning and collaboration.</p>
       </div>
-    </div>
-  </div>
+      <a class="button" href="projects.html">View projects</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Hannah Yawt</p>
+    <p class="footer-status"><span class="status-dot" aria-hidden="true"></span> Learning. Building. Securing.</p>
+  </footer>
 </body>
 </html>

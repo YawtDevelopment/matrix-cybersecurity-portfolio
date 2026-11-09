@@ -1,0 +1,39 @@
+/* Contact form styles use the shared portfolio palette from style.css. */
+.contact-form { margin-top: 1.5rem; }
+.contact-form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(59,255,143,.025);
+}
+.contact-form legend { padding: 0 .45rem; color: var(--green-bright); font-weight: 700; }
+.form-field { display: grid; gap: .35rem; margin-bottom: 1rem; }
+.form-field:last-child { margin-bottom: 0; }
+.form-field label { color: var(--text); font-weight: 700; }
+.form-field label span { color: var(--muted); font-size: .78rem; font-weight: 400; }
+.form-field input, .form-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: .7rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: rgba(3,11,8,.78);
+  color: var(--text);
+  font: inherit;
+}
+.form-field textarea { resize: vertical; }
+.form-field input[aria-invalid="true"], .form-field textarea[aria-invalid="true"] {
+  border-color: #ff9494;
+  box-shadow: 0 0 0 1px rgba(255,148,148,.22);
+}
+.field-hint, .field-error { font-size: .78rem; }
+.field-hint { color: var(--muted); }
+.field-error { color: #ffb0b0; }
+.form-submit { cursor: pointer; font: inherit; }
+.form-status { min-height: 1.5em; margin: .8rem 0 0; color: var(--green-bright); }
+.form-status[data-state="error"] { color: #ffb0b0; }
+@media (max-width: 520px) {
+  .contact-form fieldset { padding: .75rem; }
+}
