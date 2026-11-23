@@ -6,7 +6,7 @@
   <meta name="description" content="Hannah Yawt's cybersecurity and information technology portfolio.">
   <title>Hannah Yawt | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script src="script.js?v=3f76788" defer></script>
   <style>
     .live-card { padding: clamp(1.2rem, 3vw, 2rem); }
     .grad-card { margin-top: 1.25rem; padding: 1.5rem; text-align: center; }
@@ -82,14 +82,14 @@
       </div>
       <div class="grad-card panel">
         <h3 class="grad-title">🎓 Class of 2028 Countdown</h3>
-        <p class="grad-subtitle">Target date: May 15, 2028</p>
+        <p class="grad-subtitle">Target date: May 15, 2028 at 9:00 AM</p>
         <div id="countdown-display" class="timer-grid" role="timer" aria-label="Time remaining until graduation" aria-live="off">
           <div class="time-box"><span id="days" class="time-value">--</span><span class="time-label">Days</span></div>
           <div class="time-box"><span id="hours" class="time-value">--</span><span class="time-label">Hours</span></div>
           <div class="time-box"><span id="minutes" class="time-value">--</span><span class="time-label">Minutes</span></div>
           <div class="time-box"><span id="seconds" class="time-value">--</span><span class="time-label">Seconds</span></div>
         </div>
-        <p id="countdown-complete" class="muted" hidden>🎉 Congratulations, Graduate! 🎉</p>
+        <p id="countdown-complete" class="muted" role="status" hidden>🎉 Congratulations, Graduate! 🎉</p>
       </div>
     </section>
 
@@ -129,5 +129,35 @@
     <p>© 2026 Hannah Yawt</p>
     <p class="footer-status"><span class="status-dot" aria-hidden="true"></span> Learning. Building. Securing.</p>
   </footer>
+
+  <script>
+    (() => {
+      const target = new Date(2028, 4, 15, 9, 0, 0).getTime();
+      const display = document.getElementById('countdown-display');
+      const done = document.getElementById('countdown-complete');
+      const days = document.getElementById('days');
+      const hours = document.getElementById('hours');
+      const minutes = document.getElementById('minutes');
+      const seconds = document.getElementById('seconds');
+      if (!display || !done || !days || !hours || !minutes || !seconds) return;
+
+      let interval;
+      const tick = () => {
+        const remaining = target - Date.now();
+        if (remaining <= 0) {
+          clearInterval(interval);
+          display.hidden = true;
+          done.hidden = false;
+          return;
+        }
+        days.textContent = Math.floor(remaining / 86400000).toString();
+        hours.textContent = String(Math.floor(remaining / 3600000) % 24).padStart(2, '0');
+        minutes.textContent = String(Math.floor(remaining / 60000) % 60).padStart(2, '0');
+        seconds.textContent = String(Math.floor(remaining / 1000) % 60).padStart(2, '0');
+      };
+      tick();
+      if (target > Date.now()) interval = setInterval(tick, 1000);
+    })();
+  </script>
 </body>
 </html>
