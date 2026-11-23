@@ -1,23 +1,30 @@
 (() => {
-  const form = document.getElementById('contact-form');
+  const form = document.querySelector('#contact-form');
   if (!form) return;
 
   const fields = [
-    { input: form.elements.name, error: document.getElementById('name-error'), label: 'Name' },
-    { input: form.elements.email, error: document.getElementById('email-error'), label: 'Email address' },
-    { input: form.elements.message, error: document.getElementById('message-error'), label: 'Message' }
+    { input: form.elements.name, error: document.querySelector('#name-error'), label: 'Name' },
+    { input: form.elements.email, error: document.querySelector('#email-error'), label: 'Email address' },
+    { input: form.elements.message, error: document.querySelector('#message-error'), label: 'Message' }
   ];
-  const status = document.getElementById('form-status');
+  const status = document.querySelector('#form-status');
 
   function updateField(field) {
     const { input, error, label } = field;
-    const invalid = !input.validity.valid;
+    const value = input.value.trim();
+    let message = '';
+
+    if (!value) {
+      message = `${label} is required.`;
+    } else if (input.type === 'email' && !input.validity.valid) {
+      message = 'Enter a valid email address.';
+    } else if (input.minLength > 0 && value.length < input.minLength) {
+      message = `Please enter at least ${input.minLength} characters.`;
+    }
+
+    const invalid = Boolean(message);
     input.setAttribute('aria-invalid', String(invalid));
-    error.textContent = invalid ? (input.validity.valueMissing
-      ? `${label} is required.`
-      : input.validity.typeMismatch
-        ? 'Enter a valid email address.'
-        : `Please enter at least ${input.minLength} characters.`) : '';
+    error.textContent = message;
     error.hidden = !invalid;
     return invalid;
   }
