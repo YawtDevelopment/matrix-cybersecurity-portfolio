@@ -12,6 +12,7 @@
 </head>
 <body>
   <div class="matrix-overlay" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <a class="brand" href="index.html"><span class="prompt">root@</span>HannahYawt<span class="cursor" aria-hidden="true">_</span></a>
     <button class="menu-toggle" id="menu-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
@@ -23,10 +24,10 @@
     </nav>
   </header>
 
-  <main class="container page-content">
-    <section class="page-title panel">
+  <main id="main-content" class="container page-content">
+    <section class="page-title panel" aria-labelledby="page-title">
       <p class="eyebrow">ping hannah</p>
-      <h1>Let's <span class="neon">Connect</span></h1>
+      <h1 id="page-title">Let's <span class="neon">Connect</span></h1>
       <p class="muted">Have a question about a project, internship, or learning opportunity? Send a message below.</p>
     </section>
 
@@ -34,32 +35,33 @@
       <article class="panel content-panel">
         <p class="eyebrow">CONTACT FORM</p>
         <h2>Open a communication channel</h2>
-        <p class="muted">Complete the fields and your email app will open with the message ready to send.</p>
-        <form class="contact-form" id="contact-form" novalidate>
-          <fieldset>
-            <legend>Your message</legend>
+        <p class="muted" id="form-help">All four fields are required; this form opens your email app and does not send or store information on this website.</p>
+        <form class="contact-form" id="contact-form" novalidate aria-describedby="form-help">
+          <fieldset aria-describedby="form-help">
+            <legend>Your message details</legend>
             <div class="form-field">
-              <label for="contact-name">Name <span aria-hidden="true">(required)</span></label>
+              <label for="contact-name">Full name <span aria-hidden="true">(required)</span></label>
               <input id="contact-name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="name-hint name-error" aria-invalid="false">
               <small id="name-hint" class="field-hint">Enter at least 2 characters.</small>
-              <small class="field-error" id="name-error" hidden></small>
+              <small class="field-error" id="name-error" aria-live="polite" hidden></small>
             </div>
             <div class="form-field">
               <label for="contact-email">Email address <span aria-hidden="true">(required)</span></label>
               <input id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="email-hint email-error" aria-invalid="false">
               <small id="email-hint" class="field-hint">I'll use this address to reply.</small>
-              <small class="field-error" id="email-error" hidden></small>
+              <small class="field-error" id="email-error" aria-live="polite" hidden></small>
             </div>
             <div class="form-field">
-              <label for="contact-subject">Subject</label>
-              <input id="contact-subject" name="subject" type="text" maxlength="120" aria-describedby="subject-hint">
-              <small id="subject-hint" class="field-hint">Optional, up to 120 characters.</small>
+              <label for="contact-subject">Inquiry type or subject <span aria-hidden="true">(required)</span></label>
+              <input id="contact-subject" name="subject" type="text" maxlength="120" minlength="2" required aria-describedby="subject-hint subject-error" aria-invalid="false">
+              <small id="subject-hint" class="field-hint">Enter at least 2 characters, up to 120 characters.</small>
+              <small class="field-error" id="subject-error" aria-live="polite" hidden></small>
             </div>
             <div class="form-field">
               <label for="contact-message">Message <span aria-hidden="true">(required)</span></label>
               <textarea id="contact-message" name="message" rows="6" required minlength="10" aria-describedby="message-hint message-error" aria-invalid="false"></textarea>
               <small id="message-hint" class="field-hint">Please include at least 10 characters.</small>
-              <small class="field-error" id="message-error" hidden></small>
+              <small class="field-error" id="message-error" aria-live="polite" hidden></small>
             </div>
           </fieldset>
           <button class="button form-submit" type="submit">Prepare email</button>
@@ -68,9 +70,9 @@
         <p class="small-text">Prefer email? <a class="email-link" href="mailto:Hyawt@my.campus.edu">Hyawt@my.campus.edu</a></p>
       </article>
 
-      <aside class="panel contact-aside">
+      <aside class="panel contact-aside" aria-labelledby="reachability-title">
         <p class="eyebrow">STATUS</p>
-        <h2>Reachability</h2>
+        <h2 id="reachability-title">Reachability</h2>
         <p>Available for cybersecurity, IT, and learning-related inquiries.</p>
         <p class="muted">Response time: typically within a few days.</p>
         <p class="small-text">This form opens your email app; it does not store or send messages on this website.</p>

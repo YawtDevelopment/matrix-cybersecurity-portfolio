@@ -3,8 +3,9 @@
   if (!form) return;
 
   const fields = [
-    { input: form.elements.name, error: document.querySelector('#name-error'), label: 'Name' },
+    { input: form.elements.name, error: document.querySelector('#name-error'), label: 'Full name' },
     { input: form.elements.email, error: document.querySelector('#email-error'), label: 'Email address' },
+    { input: form.elements.subject, error: document.querySelector('#subject-error'), label: 'Inquiry type or subject' },
     { input: form.elements.message, error: document.querySelector('#message-error'), label: 'Message' }
   ];
   const status = document.querySelector('#form-status');
@@ -20,6 +21,8 @@
       message = 'Enter a valid email address.';
     } else if (input.minLength > 0 && value.length < input.minLength) {
       message = `Please enter at least ${input.minLength} characters.`;
+    } else if (!input.validity.valid) {
+      message = `Please check the ${label.toLowerCase()} field.`;
     }
 
     const invalid = Boolean(message);
@@ -50,7 +53,7 @@
 
     const name = form.elements.name.value.trim();
     const email = form.elements.email.value.trim();
-    const subject = form.elements.subject.value.trim() || `Portfolio message from ${name}`;
+    const subject = form.elements.subject.value.trim();
     const message = `${form.elements.message.value.trim()}\n\nFrom: ${name}\nReply to: ${email}`;
     status.textContent = 'Opening your email app with the message. Review and send it there.';
     status.removeAttribute('data-state');
